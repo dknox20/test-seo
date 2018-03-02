@@ -7,5 +7,8 @@ app.get('/canonical', (req, resp) => resp.sendFile(__dirname + '/views/canonical
 
 app.get('/hash', (req, resp) => resp.sendFile(__dirname + '/views/_hash.html'));
 app.get('/bang', (req, resp) => resp.sendFile(__dirname + '/views/_bang.html'));
-
-app.listen(3101, () => console.log(`Example app listening on port ${port}!`));
+app.get('/', function (request, response) {
+  var result = 'App is running'
+  response.send(result);
+});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
