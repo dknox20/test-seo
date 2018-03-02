@@ -1,11 +1,11 @@
 <html>
   <head>
     <link rel="canonical" href="/canonical" />
-    <script async="async" src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
   </head>
   <body>
-  <a href="#hash" onclick="getData()">LearnHash</a>
-  <a href="#!bang" onclick="getDataBang()">LearnHashBang</a>
+  <a href="#hash" onclick="getDataHash('hash')">LearnHash</a>
+  <a href="#bang" onclick="getDataHash('bang')">LearnHashBang</a>
   <a href="/index">Index</a>
   <h1>Keyword</h1>
   <section id="main-section">
@@ -31,19 +31,17 @@ using Bootstrap too…
   </p>
 </section>
   <script type="text/javascript">
-    function getData() {
-      $.get('hash').then(function(data) {
-        $('#main-section')[0].innerHTML = data;
-        // window.history.pushState(null, "", window.location + "hash")
-      });
-    }
+    function getDataHash(hash) {
+        $.get(hash).then(function (data) {
+          $('#main-section')[0].innerHTML = data;
+        });
+      }
 
-    function getDataBang() {
-      $.get('bang').then(function(data) {
-        $('#main-section')[0].innerHTML = data;
-        // window.history.pushState(null, "", window.location + "!bang")
+      $(function () {
+        if (window.location.hash) {
+          getDataHash(window.location.hash.replace(/[#!]/g, ''))
+        }
       });
-    }
   </script>
 </body>
 </html>

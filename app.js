@@ -11,4 +11,5 @@ app.get('/', function (request, response) {
   var result = 'App is running'
   response.send(result);
 });
+app.get('/googlec0ce3a7aba4c8601.html', (req, resp) => resp.sendFile(__dirname + '/views/googlec0ce3a7aba4c8601.html'));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
