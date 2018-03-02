@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script async="async" src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+  </head>
+  <body>
+  <a href="#hash" onclick="getData()">LearnHash</a>
+  <a href="#bang" onclick="getDataBang()">LearnHashBang</a>
+  <a href="/canonical">Canonical</a>
+  <h1>Keyword</h1>
+  <section id="main-section">
+  <p>
+Lorem ipsum dolor amet letterpress literally salvia kogi truffaut, plaid tumeric lo-fi forage mumblecore blog 8-bit hella
+vexillologist. Live-edge salvia vegan, bespoke chia la croix deep v. Sriracha butcher pug, pop-up +1 wayfarers XOXO cloud
+bread VHS plaid quinoa seitan lumbersexual. Dreamcatcher blog crucifix art party PBR&B unicorn tbh cray pok pok taxidermy
+sustainable echo park. Knausgaard air plant austin, stumptown man braid ennui godard cred lomo taiyaki prism butcher health
+goth tacos vinyl. Blue bottle letterpress semiotics taxidermy echo park plaid. Tofu kale chips microdosing locavore, direct
+trade gochujang fam cray 90's chambray chillwave glossier. Microdosing literally post-ironic hexagon. Post-ironic godard
+retro polaroid bushwick meh. Farm-to-table direct trade before they sold out echo park gentrify, hashtag organic scenester
+art party PBR&B keytar. Selfies master cleanse hoodie waistcoat umami. Coloring book craft beer umami +1 asymmetrical seitan
+cold-pressed deep v lomo kogi cronut. Kombucha taiyaki air plant, palo santo echo park cardigan scenester. Polaroid cronut
+viral, iPhone wayfarers ramps pop-up. Pabst microdosing blue bottle, small batch locavore chicharrones air plant. Iceland
+bespoke single-origin coffee raw denim hammock tumblr blog. Kitsch narwhal cred master cleanse pok pok hexagon ethical selvage
+post-ironic banh mi church-key aesthetic. Vaporware church-key scenester tbh fingerstache semiotics DIY selvage humblebrag
+pickled. Sustainable letterpress shaman man bun butcher cornhole, lo-fi selvage kombucha. Bicycle rights swag unicorn twee
+umami. Health goth stumptown small batch hot chicken. YOLO small batch tumblr, hexagon cray mlkshk locavore twee. Hella banh
+mi dreamcatcher mustache cray. Godard cornhole cronut, glossier butcher ennui bitters tumblr man braid shaman cardigan neutra.
+Bushwick iceland subway tile kombucha cold-pressed. Paleo letterpress vice tofu ethical irony food truck activated charcoal.
+Green juice polaroid subway tile venmo. Oh. You need a little dummy text for your mockup? How quaint. I bet you’re still
+using Bootstrap too…
+  </p>
+</section>
+  <script type="text/javascript">
+    function getData() {
+      $.get('hash').then(function(data) {
+        $('#main-section')[0].innerHTML = data;
+        // window.history.pushState(null, "", window.location + "hash")
+      });
+    }
+
+    function getDataBang() {
+      $.get('bang').then(function(data) {
+        $('#main-section')[0].innerHTML = data;
+        // window.history.pushState(null, "", window.location + "!bang")
+      });
+    }
+  </script>
+</body>
+</html>
