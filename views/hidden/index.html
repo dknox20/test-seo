@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Hidden Test | Test SEO</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+  </head>
+  <body>
+    <a href="/hidden/shown-link">Shown Link</a>
+    <a href="#linkies" onclick="showLinks();">Hidden Links</a>
+    <div id="hdl" style="display:none" >
+      <a href="/hidden/hidden-link">Hidden Link</a>
+    </div>
+
+    <script type="text/javascript">
+      function showLinks(){
+        $('#hdl').removeAttr('style');
+      }
+    </script>
+  </body>
+</html>

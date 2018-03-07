@@ -1,15 +1,31 @@
-const express = require('express');
-const app = express();
+const app = require('express')();
+const fs = require('fs');
 const port = process.env['PORT'] || 3101;
 
-app.get('/index', (req, resp) => resp.sendFile(__dirname + '/views/index.html'));
-app.get('/canonical', (req, resp) => resp.sendFile(__dirname + '/views/canonical.html'));
+const paths = (path) => [`${__dirname}/views/${path}.html`, `${__dirname}/views/${path}/index.html`];
 
-app.get('/hash', (req, resp) => resp.sendFile(__dirname + '/views/_hash.html'));
-app.get('/bang', (req, resp) => resp.sendFile(__dirname + '/views/_bang.html'));
+const router = (req, resp) => {
+  let filePath = `${__dirname}/views/${req.path}.html`;
+  const pathTests = paths(req.path);
+
+  while (filePath && !fs.existsSync(filePath)) {
+    filePath = pathTests.pop();
+  }
+  if (!filePath) { return resp.send('404'); }
+  resp.sendFile(filePath);
+}
+
+app.get('/index', router);
+app.get('/canonical', router);
+app.get('/hash', router);
+app.get('/bang', router);
+
+app.get('/hidden', router);
+app.get('/hidden/shown-link', router);
+app.get('/hidden/hidden-link', router);
+
 app.get('/', function (request, response) {
   var result = 'App is running'
   response.send(result);
 });
-app.get('/googlec0ce3a7aba4c8601.html', (req, resp) => resp.sendFile(__dirname + '/views/googlec0ce3a7aba4c8601.html'));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
