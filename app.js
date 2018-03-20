@@ -38,6 +38,7 @@ app.get('/bang', router);
 app.get('/hidden', router);
 app.get('/hidden/shown-link', router);
 app.get('/hidden/hidden-link', router);
+app.get('/', router);
 
 app.get('/sitemap.xml', (req, res) => {
   sitemaps.toXML((err, xml) => {
@@ -47,10 +48,5 @@ app.get('/sitemap.xml', (req, res) => {
     res.header('Content-Type', 'application/xml');
     res.send(xml);
   });
-});
-
-app.get('/', function (request, response) {
-  var result = 'App is running'
-  response.send(result);
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
