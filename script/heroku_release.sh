@@ -1,1 +1,1 @@
-echo "Source Version: $SOURCE_VERSION"
+echo "Source Version: $HEROKU_RELEASE_VERSION"
